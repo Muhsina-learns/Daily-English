@@ -1,1 +1,1 @@
-const SUPABASE_URL="PASTE_YOUR_PROJECT_URL",SUPABASE_KEY="PASTE_YOUR_ANON_KEY";
+const SUPABASE_URL="https://kwkffaxgwhhwwaqliyjq.supabase.co",SUPABASE_KEY="sb_publishable_MxuPFlLmO5LlxQzWC6Fp2Q_zSvBtzg3";

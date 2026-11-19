@@ -1,4 +1,4 @@
-function login(){app.innerHTML=`<div class="card" style="margin-top:8vh;text-align:center"><h1>Daily English</h1><p class="mut">Log in, or create a free account with any username (for example your name).</p><input id="lu" placeholder="Username" autocapitalize="off" maxlength="20"><input id="lp" type="text" autocomplete="off" placeholder="Password"><p id="lm" style="color:var(--bad);margin:4px"></p><button class="btn" onclick="auth(0)">Log in</button> <button class="opt" style="width:auto;display:inline-block" onclick="auth(1)">Create account</button><p class="mut" style="margin-top:14px">Build v6</p>${SUPABASE_URL.indexOf("supabase.co")<0?'<p style="color:var(--bad)">Supabase URL is not set correctly in config.js.</p>':''}</div>`}
+function login(){document.querySelector("nav").style.display="none";app.innerHTML=`<div class="card" style="margin-top:8vh;text-align:center"><h1>Daily English</h1><p class="mut">Log in, or create a free account with any username (for example your name).</p><input id="lu" placeholder="Username" autocapitalize="off" maxlength="20"><input id="lp" type="text" autocomplete="off" placeholder="Password"><p id="lm" style="color:var(--bad);margin:4px"></p><button class="btn" onclick="auth(0)">Log in</button> <button class="opt" style="width:auto;display:inline-block" onclick="auth(1)">Create account</button>${SUPABASE_URL.indexOf("supabase.co")<0?'<p style="color:var(--bad)">Supabase URL is not set correctly in config.js.</p>':''}</div>`}
 async function auth(c){const m=$('lm'),n=$('lu').value.trim(),p=$('lp').value,k=n.toLowerCase();
  if(!db){m.textContent='Server not configured yet.';return}
  if(!/^[a-z0-9_-]{3,20}$/.test(k)||p.length<4){m.textContent='Username: 3-20 letters/numbers. Password: 4+ characters.';return}
@@ -6,7 +6,7 @@ async function auth(c){const m=$('lm'),n=$('lu').value.trim(),p=$('lp').value,k=
   if(c){const r=await db.rpc('register',{u:k,n,h});if(r.error)throw 0;if(!r.data){m.textContent='That username is taken.';return}}
   const r=await db.rpc('login',{u:k,h});if(r.error)throw 0;
   if(!r.data||!r.data.username){m.textContent='Wrong username or password.';return}
-  profile=r.data;uid=k;uh=h;isOwner=!!profile.is_admin;$('adm').hidden=!isOwner;
+  profile=r.data;uid=k;uh=h;document.querySelector('nav').style.display='';isOwner=!!profile.is_admin;$('adm').hidden=!isOwner;
   app.innerHTML=`<div class="card" style="margin-top:8vh;text-align:center"><h1>Welcome, ${esc(profile.name)}!</h1><p>${c?'Your account is ready.':'You are logged in.'}</p><button class="btn" onclick="go('home')">Next</button></div>`
  }catch(e){m.textContent='Something went wrong. Try again.'}}
 function home(){

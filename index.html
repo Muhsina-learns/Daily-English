@@ -25,11 +25,11 @@ a.back{color:var(--bur2);cursor:pointer;font:14px sans-serif}
 </style></head><body>
 <header><b onclick="go('home')">📖 Daily English</b><nav><button onclick="go('home')">Levels</button><button onclick="go('board')">Leaderboard</button><button id="adm" onclick="go('admin')" hidden>Admin</button><button onclick="profile=null;uid=null;go('login')">Log out</button></nav></header>
 <main id="app"></main>
+<script>window.onerror=function(m,u,l){var a=document.getElementById("app");if(a)a.insertAdjacentHTML("afterbegin","<pre style=\"color:#b3261e;white-space:pre-wrap;font:14px monospace\">ERROR: "+m+" (line "+l+")</pre>")}</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
 <script>
-const SUPABASE_URL="https://kwkffaxgwhhwwaqliyjq.supabase.co",SUPABASE_KEY="sb_publishable_MxuPFlLmO5LlxQzWC6Fp2Q_zSvBtzg3";
+const SUPABASE_URL="PASTE_YOUR_PROJECT_URL",SUPABASE_KEY="PASTE_YOUR_ANON_KEY";
 // ---------- CONTENT (expand by adding more objects; quizzes for vocab are auto-generated) ----------
 const PTS={B1:1,B2:2,C1:3,C2:4};
 const C={
 B1:{v:[["reliable","that you can trust to do what is expected","Our bus is always on time – it's very reliable."],["improve","to become or make better","I read daily to improve my English."],["manage","to succeed in doing something difficult","She managed to finish the report."],["opportunity","a chance to do something good","This job is a great opportunity."],["achieve","to reach a goal through effort","She worked hard to achieve her dream."],["advantage","something that puts you in a better position","Speaking two languages is a big advantage."],["avoid","to stay away from something","I avoid sugary drinks."],["complain","to say you are unhappy about something","Guests complained about the noise."],["decision","a choice you make after thinking","It was a difficult decision."],["experience","knowledge gained by doing something","He has ten years of experience."],["popular","liked by many people","This song is very popular."],["recommend","to suggest something as good","Can you recommend a restaurant?"],["suggest","to put forward an idea","I suggest we leave early."],["necessary","needed; you must have it","Is it necessary to book a table?"],["environment","the natural world around us","We must protect the environment."]],
-g:[{t:"Present Perfect",rule:"Use have/has + past participle for experiences and for actions that started in the past and continue now. Example: I have lived here for five years.",q:[["She ___ to Paris twice.",["has been","was being","goes"],0],["I ___ my keys. I can't find them.","lost|have lost|was losing".split("|"),1],["How long ___ you known him?","did|have|are".split("|"),1]]}],
